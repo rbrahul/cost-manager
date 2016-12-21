@@ -1,0 +1,35 @@
+{% extends "login.html" %}
+{% block content %}
+   <div class="login-area">
+                <h1 aling="right">Login Here</h1> 
+                         {% if loginError %}
+                      <div class="alert alert-danger">
+                        <strong>{{loginError}}</strong>
+                      </div>
+                    {% endif %}
+                 <form action="/login" method="post">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <input type="text" name="email" value="{% if oldValue %} {{oldValue.email}}{% endif %}" class="form-control" id="email" placeholder="Email">
+                        </div>
+
+                           {% if formErrors.email %}
+                                <span class="text-danger">
+                                   <strong>{{formErrors.email.msg}}</strong>
+                                </span>
+                               {% endif %}
+                      </div>
+                      
+                        <div class="form-group ">
+
+                        <div class="input-group col-md-12">
+                          <div class="input-group-addon"><i class="fa fa-unlock"></i></div>
+                          <input type="password" name="password" class="form-control" id="password">
+                        </div>
+                      </div>
+                           <a href="/signup" class="login-url">Dont't have an account?</a> 
+                      <button type="submit" class="btn btn-warning" align="right">Sign In</button>
+                </form>
+           </div>
+ {% endblock  %}

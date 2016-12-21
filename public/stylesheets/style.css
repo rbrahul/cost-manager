@@ -1,0 +1,14 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f8f8f8 !important;
+}
+
+a {
+  color: #00B7FF;
+}
+.chart-holder{
+	margin:10px;
+	background-color: #fff;
+	box-shadow: 0 0 3px 0 #ccc;
+}

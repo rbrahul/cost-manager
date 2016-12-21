@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<div class="col-md-12">
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title"> Expense of {{ date }}</h3>
+	</div>
+	<div class="panel-body">
+{% if expences %}
+	
+	<table class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>SL.</th>
+				<th>Cost Category</th>
+				<th>Expense</th>
+			</tr>
+		</thead>
+		<tbody>
+	{% set i=1 %}
+		{% set total=0 %}
+{% for expense in expences %}
+
+			<tr>
+				<td>{{i}}</td>
+				<td>{{categories[expense.category]}}</td>
+				<td>{{expense.amount}} <b>BDT</b></td>
+			</tr>
+
+			{% set i=i+1 %}
+			{% set total=total+expense.amount %}
+	{% endfor  %}
+			<tr>
+				<td colspan="2" style="text-align:right;font-size:16px;">Total Expense</td>
+				<td style="font-size:20px;"><b>{{total}} <span style="font-size:16px;">BDT</span></b>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+{% endif %}
+	</div>
+	<!-- .panel-body -->
+</div>
+<!-- .panel -->
+</div>
+<!-- col-md-10 col-md-offset-1 -->
+
+
+{% endblock %}

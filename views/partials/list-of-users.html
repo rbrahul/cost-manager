@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+
+
+
+<div class="col-md-12">
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">Users</h3>
+	</div>
+	<div class="panel-body">
+		
+{% if users %}
+
+	<table class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>SL.</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Mobile No.</th>
+
+				<th>#</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% set i=1 %}
+{% for user in users %}
+
+			<tr>
+				<td>{{i}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.mobileno}}</td>
+
+				<td>
+					<a href="/users/{{user._id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+			
+			</tr>
+			{% set i=i+1 %}
+	{% endfor  %}
+
+		</tbody>
+	</table>
+	{% endif  %}
+	</div>
+</div>
+</div>
+	
+</div>
+
+{% endblock main %}

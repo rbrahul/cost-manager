@@ -1,0 +1,58 @@
+/* Styles go here */
+
+body{
+    margin:0;
+    padding-right:0;
+    padding-left:0;
+    overflow-x:hidden;
+}
+#wrapper{
+    background-color:#f6f6f6;
+  height:100vh;
+  display:block;
+  background-image:url('../images/business-925900_1920.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.left-area{
+background-color:rgba(240, 162, 66, 0.65);
+display: block;
+height:100vh;
+content: '';
+}
+.right-area{
+  background:#fefefe;
+  height:100vh;
+}
+
+.container-fluid{
+    margin-right: auto;
+    margin-left: auto;
+    padding:0px;
+}
+
+.login-area h1,#registration-area{
+  margin-top:70px;
+  padding:10px;
+}
+
+.login-area h1,#registration-area h1{
+  font-size:32px;
+  text-align:left;
+}
+.login-area button,#registration-area button{
+  float: right;
+}
+
+a.login-url{
+  text-align: center;
+}
+
+a.login-url {
+ font-weight: bold;
+ color:#ff7518;
+ font-weight: bold;
+ font-size: 16px;
+ text-decoration: none;
+ margin-top: 10px;
+}

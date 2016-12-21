@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+<div class="col-md-12">
+	<div class="row">
+<div class="col-md-8 col-md-offset-2">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Add New Category</h3>
+		</div>
+		<div class="panel-body">
+		        {% if errorMessage %}
+                      <div class="alert alert-danger">
+                        <strong>{{errorMessage.name.msg}}</strong>
+                      </div>
+                    {% endif %}
+			<form action="/categories" method="post">
+				<div class="col-md-12">
+					<div class="col-md-10 col-sm-9">
+				<div class="form-group">
+						<input type="text" name="name" placeholder="Enter Category Name .." class="form-control"/>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-3">
+						<button type="submit" class="btn btn-info">Save</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- .row -->
+<div class="row">
+
+
+<div class="col-md-8 col-md-offset-2">
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">Categories</h3>
+	</div>
+	<div class="panel-body">
+		
+{% if categories %}
+
+	<table class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>SL.</th>
+				<th>Name</th>
+
+				<th>#</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% set i=1 %}
+{% for category in categories %}
+
+			<tr>
+				<td>{{i}}</td>
+				<td>{{category.name}}</td>
+
+				<td>
+					<a href="/categories/{{category._id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
+				</td>
+			</tr>
+			
+			</tr>
+			{% set i=i+1 %}
+	{% endfor  %}
+
+		</tbody>
+	</table>
+	{% endif  %}
+	</div>
+</div>
+</div>
+	
+</div>
+</div>
+<!-- .col-md-12 -->
+
+{% endblock main %}

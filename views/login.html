@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <title>
+    {{title}}
+  </title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+ <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+<div id="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+      <div class="col-md-9 left-area">
+      </div>
+    <!--  left-area-->
+      <div class="col-md-3 right-area">
+{% block content %}
+This is the default content 
+{% endblock %}
+   
+        
+      </div>
+    <!--  left-area-->
+    </div>
+   <!-- .col-md-12-->
+      
+    </div>
+   <!-- .row-->
+    
+  </div>
+<!--  container-fluid-->
+</div>
+<!-- wrapper -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+
+</html>

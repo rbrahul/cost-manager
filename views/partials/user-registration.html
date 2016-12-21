@@ -1,0 +1,55 @@
+  {% extends "../login.html" %}
+{% block content %}
+         <div class="" id="registration-area">
+                 <h1 aling="right">Register Now</h1> 
+{% if successMsg %}
+                 <div class="alert alert-success">
+                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                   <strong>{{successMsg}}</strong> 
+                 </div>
+                 {% endif %}
+                  <form action="/signup" method="POST">  
+           
+                          <div class="form-group">
+                                <label class="control-label" for="inputDefault">Full Name</label>
+                                <input type="text" name="full_name" class="form-control" id="inputDefault">
+                             {% if formErrors.full_name %}
+                                <span class="text-danger">
+                                   <strong>{{formErrors.full_name.msg}}</strong>
+                                </span>
+                               {% endif %}
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="inputDefault">Email</label>
+                                <input type="text" name="email" class="form-control" id="inputDefault">
+                                {% if formErrors.email %}
+                                <span class="text-danger">
+                                   <strong>{{formErrors.email.msg}}</strong>
+                                </span>
+                               {% endif %}
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="inputDefault">Password</label>
+                                <input type="text" name="password" class="form-control" id="inputDefault">
+                                   {% if formErrors.password %}
+                                <span class="text-danger">
+                                   <strong>{{formErrors.password.msg}}</strong>
+                                </span>
+                               {% endif %}
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="inputDefault">Confirm Password</label>
+                                <input type="text" name="confirmation_password" class="form-control" id="inputDefault">
+                                   {% if formErrors.confirmation_password %}
+                                <span class="text-danger">
+                                   <strong>{{formErrors.confirmation_password.msg}}</strong>
+                                </span>
+                               {% endif %}
+                              </div>
+                             <a href="/login" class="login-url">Already have an account?</a>  <button type="submit" class="btn btn-warning"  align="right">Sign Up</button>
+                        </form>
+                           <!--  <p class="login-url"><a href="/login">Already have an account?</a></p> -->
+
+              </div>
+
+              {% endblock  %}

@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+
+<div class="row">
+	<div class="col-md-12">
+	<div class="chart-holder">
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+<!-- .chart-holder -->
+</div>
+</div>
+<!-- .row -->
+
+<div class="row">
+	<div class="col-md-12">
+	<row>
+		<div class="col-md-6">
+			tabular chart
+		</div>
+		<div class="col-md-6">
+			Donult Chart
+		</div>
+		</row>
+		</div>
+		<!-- col-md-12 -->
+</div>
+<!-- .row -->
+
+
+
+{% endblock main %}
+
+{% block scripts %}
+		<script type="text/javascript">
+$(function () {
+    // Create the chart
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Expenses of January, 2016 to February, 2016'
+        },
+    
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total percent market share'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f} BDT'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} BDT</b><br/>'
+        },
+
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [
+            {% for key,value in costs %}
+            {
+                name: '{{ key }}',
+                y: {{ value }},
+                drilldown: '{{key}}'
+            },
+
+            {% endfor %}
+
+            ]
+        }],
+    
+      
+    });
+});
+		</script>
+<script src="/highcharts/js/highcharts.js"></script>
+{% endblock %}
